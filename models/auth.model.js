@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const AuthSchema = new mongoose.Schema(
   {
-    Name: {
+    fullName: {
       type: String,
       required: true,
       min: 2,
@@ -13,12 +13,18 @@ const AuthSchema = new mongoose.Schema(
       max: 50,
       unique: true,
     },
+    phone: {
+      type: Number,
+      required: true,
+      max: 10,
+      unique: true,
+    },
     password: {
       type: String,
       required: true,
       min: 5,
     },
-    picturePath: {
+   profilePicture: {
       type: String,
       default: "",
     },
