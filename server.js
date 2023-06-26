@@ -4,17 +4,11 @@ const cors = require("cors");
 const helmet = require("helmet");
 const path = require("path");
 const { Connection } = require("./config/databaseConnection");
+const { AuthRouter } = require("./Routes/auth.route");
 const app = express();
 require("dotenv").config();
 
 const PORT = process.env.PORT || 5000;
-
-// const { UserProfilerouter } = require("./routes/userProfile.router");
-// const { loginRouter } = require("./routes/login.router");
-// const { signuprouter } = require("./routes/signup.router");
-// const { addtoCartRotuer } = require("./routes/addtocart.router");
-// const { WomenProductrouter } = require("./routes/womenproduct.router");
-// const { menproductRouter } = require("./routes/menproducts.router");
 
 app.use(express.json());
 app.use(cors());
@@ -27,6 +21,7 @@ app.use("/assets", express.static(path.join(__dirname, "public/assets")));
 app.get("/", (req, res) => {
   res.send("Hello there, your on home route");
 });
+app.use("/auth", AuthRouter);
 
 app.listen(PORT, async () => {
   try {

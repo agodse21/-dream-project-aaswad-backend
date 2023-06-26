@@ -13,18 +13,18 @@ const AuthSchema = new mongoose.Schema(
       max: 50,
       unique: true,
     },
-    phone: {
-      type: Number,
-      required: true,
-      max: 10,
-      unique: true,
-    },
+    // phone: {
+    //   type: Number,
+    //   required: true,
+    //   max: 10,
+    //   unique: true,
+    // },
     password: {
       type: String,
       required: true,
       min: 5,
     },
-   profilePicture: {
+    profilePicture: {
       type: String,
       default: "",
     },
